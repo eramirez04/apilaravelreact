@@ -4,17 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Persona;
 use Illuminate\Http\Request;
+use App\Http\Requests\RequestPersona;
 
 class PersonaController extends Controller
 {
    
     public function index() {
 
-        $persona = Persona::
+        $persona = Persona::all();
 
         return response()->json([
-            "mensaje" => 'hola desde la api para listar usuarios'
-            'personas'
+            "mensaje" => 'hola desde la api para listar usuarios',
+            'personas' => $persona
         ]);
     }
 
@@ -24,20 +25,12 @@ class PersonaController extends Controller
         //
     }
 
-    public function store(Request $request)
-    {
-        $this->validate($request,[
-            'nombre' => 'required |min:3',
-            'email' => 'email | required',
-            'password' => 'required'
-        ]); 
-
+    public function store(RequestPersona $request) {
         Persona::create([
             'nombre' => $request->nombre,
             'email' => $request->email,
             'password' =>$request->password
         ]);
-
 
         return response()->json([
             'mensaje' => 'persona creada',
