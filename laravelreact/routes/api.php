@@ -22,3 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/listar',[PersonaController::class, 'index']);
 
 Route::post('/crear',[PersonaController::class, 'store']);
+
+Route::put('/actualizar/{id}',[PersonaController::class, 'update']);
+
+Route::delete('/eliminar/{id}',[PersonaController::class, 'destroy']);
