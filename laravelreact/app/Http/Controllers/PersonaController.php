@@ -22,11 +22,19 @@
         {
             Persona::create(['nombre' => $request->nombre, 'email' => $request->email, 'password' => $request->password]);
 
-            return response()->json(['mensaje' => 'persona creada',
-
+            return response()->json([
+                'mensaje' => 'persona creada'
             ], 200);
         }
 
+        public function show($id) {
+            $persona = Persona::find($id);
+
+            return response()->json([
+                'mensaje' => 'se encontro la persona',
+                'user' => $persona
+            ]);
+        }
 
 
 
