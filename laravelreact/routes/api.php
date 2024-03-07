@@ -28,3 +28,7 @@ Route::get('/user/{id}',[PersonaController::class, 'show']);
 Route::put('/actualizar/{id}',[PersonaController::class, 'update']);
 
 Route::delete('/eliminar/{id}',[PersonaController::class, 'destroy']);
+
+
+/* Route::resource('persona',PersonaController::class);
+ */

@@ -3,7 +3,6 @@
     namespace App\Http\Controllers;
 
     use App\Models\Persona;
-    use Illuminate\Http\Request;
     use App\Http\Requests\RequestPersona;
     use App\Http\Requests\UpdatePersonaRequest;
 
@@ -20,7 +19,12 @@
 
         public function store(RequestPersona $request)
         {
-            Persona::create(['nombre' => $request->nombre, 'email' => $request->email, 'password' => $request->password]);
+            Persona::create(['nombre' => $request->nombre, 
+            'email' => $request->email,
+             'password' => $request->password
+            ]);
+
+      /*       $sql = "insert into personas () values()"; */
 
             return response()->json([
                 'mensaje' => 'persona creada'
